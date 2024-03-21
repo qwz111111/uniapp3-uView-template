@@ -23,11 +23,3 @@ export function email(email) {
   const [username, domain] = email.split('@')
   return `${username.replace(/(\w)\w+/g, '$1*')}@${domain}`
 }
-
-export default {
-  idCard,
-  mobile,
-  bankCard,
-  userName,
-  email
-}

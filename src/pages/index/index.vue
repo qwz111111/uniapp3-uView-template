@@ -11,12 +11,6 @@
 import { ref } from 'vue'
 const title = ref('hello1')
 
-setTimeout(() => {
-  
-  uni.navigateTo({
-    url: '/pages/risk/data/credit-repair-apply-page'
-  })
-}, 1000);
 </script>
 
 <style lang="scss">
