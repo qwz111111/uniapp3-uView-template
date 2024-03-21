@@ -8,6 +8,7 @@
   },
   "pages": [
     { "path": "pages/index/index" },
+    { "path": "pages/mine/mine" },
     { "path": "pages/error/404" },
     { "path": "pages/error/500" },
     { "path": "pages/error/auth" },
@@ -16,6 +17,24 @@
     { "path": "pages/error/empty-list" },
     { "path": "pages/error/network" }
   ],
+  "tabBar": {
+    "color": "#a1a1a1",
+    "selectedColor": "#3d6cd6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "设备列表",
+        "iconPath": "/static/tabBar/shebei-c.png",
+        "selectedIconPath": "/static/tabBar/shebei.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/static/tabBar/wode-c.png",
+        "selectedIconPath": "/static/tabBar/wode.png"
+      }
+    ]
+  },
   "globalStyle": {
     // #ifdef H5
     "navigationStyle": "custom",
