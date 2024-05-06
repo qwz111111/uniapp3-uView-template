@@ -1,1 +1,1 @@
-{ "type": "build-config", "version": "0.0.1", "outputPath": "dist" }
+{ "type": "build-config", "version": "0.0.1", "outputPath": "dist/build/h5" }
