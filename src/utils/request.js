@@ -15,7 +15,17 @@ const getId = () => {
   } catch (e) {
     m = ''
   }
-  return m
+}
+
+/* 拼接参数 */
+const params = data => {
+  if (getId()) {
+    return {
+      m: getId(),
+      ...data
+    }
+  }
+  return data
 }
 
 /**
@@ -27,17 +37,6 @@ const getId = () => {
  * @return {Promise}
  */
 export const request = (url, data, isLoad = true, method = 'GET') => {
-  // 拼接参数
-  const params = () => {
-    if (getId()) {
-      return {
-        m: getId(),
-        ...data
-      }
-    }
-    return data
-  }
-
   return new Promise((resolve, reject) => {
     isLoad && uni.showLoading({ title: '加载中……', mask: true })
 
@@ -45,7 +44,7 @@ export const request = (url, data, isLoad = true, method = 'GET') => {
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       url: `${baseURL}${url}`,
       method: method,
-      data: params(),
+      data: params(data),
       success(res) {
         if (typeof res.data !== 'object') {
           errToast(isLoad, '服务端异常！')
@@ -91,16 +90,6 @@ export const uploadFile = (
   isLoad = true,
   name = 'file'
 ) => {
-  // 拼接参数
-  const params = () => {
-    if (getId()) {
-      return {
-        m: getId(),
-        ...data
-      }
-    }
-    return data
-  }
   return new Promise((resolve, reject) => {
     isLoad && uni.showLoading({ title: '文件上传中……', mask: true })
 
@@ -108,7 +97,7 @@ export const uploadFile = (
       url: `${baseURL}${url}`,
       filePath: filePath,
       name: name,
-      formData: params(),
+      formData: params(data),
       success(res) {
         if (res.statusCode !== 200) {
           errToast(isLoad, res.errMsg)
