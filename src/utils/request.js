@@ -8,10 +8,14 @@ const errToast = (isLoad, err) => {
 
 /* 获取id */
 const getId = () => {
-  if (uni.getStorageSync('userInfo')) {
-    return JSON.parse(uni.getStorageSync('userInfo')).m
+  let m = ''
+  try {
+    const value = uni.getStorageSync('m')
+    value ? (m = value) : (m = '')
+  } catch (e) {
+    m = ''
   }
-  return ''
+  return m
 }
 
 /**
